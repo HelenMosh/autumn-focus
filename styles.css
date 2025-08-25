@@ -69,16 +69,17 @@ button:hover {
   flex-direction: column; /* Располагаем элементы вертикально */
   justify-content: space-between; /* Распределяем элементы с промежутком */
   align-items: center; /* Центрируем элементы по горизонтали */
+  position: relative; /* добавляем для абсолютного позиционирования */
 }
 
 /* Текст внутри книги */
 #book-text {
-  flex: 1; /* Занимает все доступное пространство */
-  display: flex; /* Flexbox для центрирования текста */
-  justify-content: center; /* Центрируем по горизонтали */
-  align-items: center; /* Центрируем по вертикали */
-  text-align: center; /* Выравниваем текст по центру */
-  padding: 10px; /* Отступы внутри блока */
+position: absolute;
+  bottom: 200px; /* отступ от нижнего края книги */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%; /* чтобы текст не прилипал к краям */
+  text-align: center;
 }
 
 /* Кнопка закрытия модалки */
@@ -86,7 +87,7 @@ button:hover {
   background-color: #5c2800; /* Темно-серый фон */
   border: 2px solid #000; /* Черная рамка */
   color: #ffe066; /* Черный текст */
-  margin-top: 10px; /* Отступ сверху */
+  margin-top: 230px; /* Отступ сверху */
   padding: 10px 15px; /* Размер кнопки */
   cursor: pointer; /* Курсор при наведении */
 }
