@@ -26,8 +26,9 @@ body {
 button {
   width: 220px; /* Увеличенная ширина кнопок */
   height: 60px; /* Увеличенная высота кнопок */
+  border-radius: 10px; /* Скругление кнопки */
   background-color: #ff7518; /* Основной оранжевый фон кнопки */
-  border: 2px solid #000; /* Черная рамка */
+  border: 4px solid #000; /* Черная рамка */
   color: #000; /* Черный текст */
   font-family: 'Press Start 2P', monospace; /* Пиксельный шрифт */
   font-size: 14px; /* Увеличенный размер шрифта для большей читаемости */
@@ -38,7 +39,8 @@ button {
 }
 
 button:hover {
-  background-color: #ff944d; /* Цвет кнопки при наведении */
+  background-color: #b34700; /* Цвет кнопки при наведении */
+  color: #fff;
 }
 
 /* Модалка-книга */
@@ -57,12 +59,12 @@ button:hover {
 #book-content {
   background: url("book.png") no-repeat center center; /* Картинка книги */
   background-size: contain; /* Уместить картинку внутри блока */
-  width: 400px; /* Ширина книги */
-  height: 300px; /* Высота книги */
+  width: 800px; /* Ширина книги */
+  height: 600px; /* Высота книги */
   margin: 100px auto; /* Центрируем по горизонтали, отступ сверху 100px */
   padding: 40px; /* Внутренние отступы для текста */
   color: #000; /* Цвет текста внутри книги */
-  font-size: 10px; /* Размер текста */
+  font-size: 15px; /* Размер текста */
   display: flex; /* Используем flexbox */
   flex-direction: column; /* Располагаем элементы вертикально */
   justify-content: space-between; /* Распределяем элементы с промежутком */
@@ -81,9 +83,9 @@ button:hover {
 
 /* Кнопка закрытия модалки */
 #book-close {
-  background-color: #444; /* Темно-серый фон */
+  background-color: #5c2800; /* Темно-серый фон */
   border: 2px solid #000; /* Черная рамка */
-  color: #000; /* Черный текст */
+  color: #ffe066; /* Черный текст */
   margin-top: 10px; /* Отступ сверху */
   padding: 10px 15px; /* Размер кнопки */
   cursor: pointer; /* Курсор при наведении */
