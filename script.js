@@ -3,6 +3,28 @@
 // ------------------ Элементы страниц ------------------
 const page1 = document.getElementById('page1');
 const page2 = document.getElementById('page2');
+// ------------------ Кнопка "Полить" ------------------
+const waterBtn = document.getElementById('water-btn');
+const bookModal = document.getElementById('book-modal');
+const bookText = document.getElementById('book-text');
+const bookClose = document.getElementById('book-close');
+
+const tips = [
+  "Тыкве нужно время, чтобы впитать воду!",
+  "Помни, что регулярный уход за растением — залог роста.",
+  "Полив помогает твоей тыкве расти!",
+  "Каждый час — шанс для тыквы подрасти!"
+];
+
+waterBtn.addEventListener('click', () => {
+  const randomTip = tips[Math.floor(Math.random() * tips.length)];
+  bookText.textContent = randomTip;
+  bookModal.style.display = 'block';
+});
+
+bookClose.addEventListener('click', () => {
+  bookModal.style.display = 'none';
+});
 
 // Кнопки навигации
 const startBtn = document.getElementById('start-btn');
