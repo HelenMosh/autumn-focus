@@ -59,8 +59,8 @@ button:hover {
 #book-content {
   background: url("book.png") no-repeat center center; /* Картинка книги */
   background-size: contain; /* Уместить картинку внутри блока */
-  width: 800px; /* Ширина книги */
-  height: 600px; /* Высота книги */
+  width: 400px; /* Ширина книги */
+  height: 200px; /* Высота книги */
   margin: 100px auto; /* Центрируем по горизонтали, отступ сверху 100px */
   padding: 40px; /* Внутренние отступы для текста */
   color: #000; /* Цвет текста внутри книги */
