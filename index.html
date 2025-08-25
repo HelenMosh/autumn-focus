@@ -2,18 +2,45 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Экран тыквы</title>
+  <title>Гостиная и Таймер</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
-<body style="background: url('bg.png') no-repeat center center; background-size: cover;">
-  <div class="container">
-    <!-- Убрана отрисовка тыквы -->
-    <button id="water-btn">ПОЛИТЬ</button>
-    <button id="start-btn">НАЧАТЬ РАБОТУ</button>
+<body>
+  <!-- Страница 1: Гостиная -->
+  <div id="page1" class="page">
+    <div class="container">
+      <button id="water-btn">ПОЛИТЬ</button>
+      <button id="start-btn">НАЧАТЬ РАБОТУ</button>
+    </div>
   </div>
 
-  <!-- Модалка-книга -->
+  <!-- Страница 2: Таймер / Тайгер -->
+  <div id="page2" class="page hidden">
+    <div class="container">
+      <button id="back-btn">ВЕРНУТЬСЯ В ГОСТИНУЮ</button>
+      <button id="timer-btn">ЗАПУСТИТЬ ТАЙМЕР</button>
+    </div>
+
+    <!-- Модальное окно для ввода времени -->
+    <div id="timer-modal" class="modal hidden">
+      <div class="modal-content">
+        <label>Время работы (мин): <input type="number" id="work-time" min="1" value="25"></label><br>
+        <label>Время отдыха (мин): <input type="number" id="break-time" min="1" value="5"></label><br>
+        <button id="start-timer">Запуск</button>
+        <button id="close-timer">Отмена</button>
+      </div>
+    </div>
+
+    <!-- Таймер отображение -->
+    <div id="timer-display" class="hidden">
+      <div id="timer-label">Работа</div>
+      <div id="timer-count">00:00</div>
+      <button id="reset-timer">Сбросить</button>
+    </div>
+  </div>
+
+  <!-- Модалка книги (оставляем для «Полить») -->
   <div id="book-modal">
     <div id="book-content">
       <div id="book-text"></div>
