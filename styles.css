@@ -59,12 +59,12 @@ button:hover {
 #book-content {
   background: url("book.png") no-repeat center center; /* Картинка книги */
   background-size: contain; /* Уместить картинку внутри блока */
-  width: 400px; /* Ширина книги */
-  height: 200px; /* Высота книги */
+  width: 800px; /* Ширина книги */
+  height: 300px; /* Высота книги */
   margin: 100px auto; /* Центрируем по горизонтали, отступ сверху 100px */
-  padding: 40px; /* Внутренние отступы для текста */
+  padding:40px; /* Внутренние отступы для текста */
   color: #000; /* Цвет текста внутри книги */
-  font-size: 15px; /* Размер текста */
+  font-size: 13px; /* Размер текста */
   display: flex; /* Используем flexbox */
   flex-direction: column; /* Располагаем элементы вертикально */
   justify-content: space-between; /* Распределяем элементы с промежутком */
