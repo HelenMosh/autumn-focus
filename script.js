@@ -1,6 +1,6 @@
 // script.js
 
-// Элементы страниц
+// ------------------ Элементы страниц ------------------
 const page1 = document.getElementById('page1');
 const page2 = document.getElementById('page2');
 
@@ -29,17 +29,13 @@ let breakDuration = 0;
 
 // ------------------ Плавное переключение страниц ------------------
 function showPage2() {
-  page2.classList.remove('hidden');
-  page1.style.transform = 'translateX(-100%)'; // первая страница уходит влево
-  page2.style.transform = 'translateX(0)';     // вторая появляется
-  setTimeout(() => page1.classList.add('hidden'), 700);
+  page2.style.transform = 'translateX(0)';      // Вторая страница появляется
+  page1.style.transform = 'translateX(-100%)';  // Первая страница уходит влево
 }
 
 function showPage1() {
-  page1.classList.remove('hidden');
-  page1.style.transform = 'translateX(0)';      // первая страница возвращается
-  page2.style.transform = 'translateX(100%)';   // вторая уходит вправо
-  setTimeout(() => page2.classList.add('hidden'), 700);
+  page1.style.transform = 'translateX(0)';       // Первая возвращается
+  page2.style.transform = 'translateX(100%)';   // Вторая уходит вправо
 }
 
 // ------------------ Навигация кнопок ------------------
@@ -68,28 +64,30 @@ function startPhase(phase) {
   clearInterval(timerInterval);
   currentPhase = phase;
   timerDisplay.classList.remove('hidden');
+
   if (phase === 'work') {
     timerLabel.textContent = 'Работа';
-    updateTimer(workDuration);
+    runTimer(workDuration);
   } else {
     timerLabel.textContent = 'Отдых';
-    updateTimer(breakDuration);
+    runTimer(breakDuration);
   }
 }
 
-function updateTimer(duration) {
+function runTimer(duration) {
   let remaining = duration;
   timerCount.textContent = formatTime(remaining);
 
   timerInterval = setInterval(() => {
     remaining--;
     timerCount.textContent = formatTime(remaining);
+
     if (remaining <= 0) {
       clearInterval(timerInterval);
       if (currentPhase === 'work') {
         startPhase('break');
       } else {
-        // Конец цикла: спросить пользователя
+        // Конец цикла: спрашиваем пользователя
         if (confirm('Продолжаем работать?')) {
           startPhase('work');
         } else {
