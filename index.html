@@ -1,42 +1,26 @@
-<!doctype html>
-<td class="d"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="d"></td><td class="bg"></td>
-</tr>
-<tr>
-<td class="d"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="d"></td><td class="bg"></td>
-</tr>
-<tr>
-<td class="bg"></td><td class="d"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="d"></td><td class="bg"></td><td class="bg"></td>
-</tr>
-<tr>
-<td class="bg"></td><td class="bg"></td><td class="d"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="d"></td><td class="bg"></td><td class="bg"></td><td class="bg"></td>
-</tr>
-<tr>
-<td class="bg"></td><td class="bg"></td><td class="bg"></td><td class="d"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="d"></td><td class="bg"></td><td class="bg"></td><td class="bg"></td><td class="bg"></td>
-</tr>
-<tr>
-<td class="bg"></td><td class="bg"></td><td class="bg"></td><td class="bg"></td><td class="d"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="o"></td><td class="d"></td><td class="bg"></td><td class="bg"></td><td class="bg"></td><td class="bg"></td><td class="bg"></td>
-</tr>
-<tr>
-<td class="bg"></td><td class="bg"></td><td class="bg"></td><td class="bg"></td><td class="bg"></td><td class="d"></td><td class="d"></td><td class="d"></td><td class="d"></td><td class="d"></td><td class="bg"></td><td class="bg"></td><td class="bg"></td><td class="bg"></td><td class="bg"></td><td class="bg"></td>
-</tr>
-</tbody>
-</table>
-</div>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Экран тыквы</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div id="pumpkin"></div>
+    <button id="water-btn">Полить!</button>
+    <button id="start-btn">Начать работу</button>
+  </div>
 
-<div class="actions">
-<button id="waterBtn" class="btn">Полить!</button>
-</div>
-</main>
+  <!-- Модалка-книга -->
+  <div id="book-modal">
+    <div id="book-content">
+      <div id="book-text"></div>
+      <button id="book-close">Закрыть</button>
+    </div>
+  </div>
 
-<!-- Modal: Мысль дня -->
-<div id="tipModal" class="modal" aria-hidden="true" role="dialog" aria-label="Мысль дня">
-<div class="book">
-<button class="close" id="closeModal" aria-label="Закрыть">×</button>
-<h2>Мысль дня</h2>
-<p id="tipText">…</p>
-</div>
-</div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
