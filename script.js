@@ -1,8 +1,12 @@
-// script.js
-
 // ------------------ Элементы страниц ------------------
 const page1 = document.getElementById('page1');
 const page2 = document.getElementById('page2');
+
+// Кнопки навигации
+const startBtn = document.getElementById('start-btn');
+const backBtn = document.getElementById('back-btn');
+const timerBtn = document.getElementById('timer-btn');
+
 // ------------------ Кнопка "Полить" ------------------
 const waterBtn = document.getElementById('water-btn');
 const bookModal = document.getElementById('book-modal');
@@ -26,29 +30,6 @@ bookClose.addEventListener('click', () => {
   bookModal.style.display = 'none';
 });
 
-// Кнопки навигации
-const startBtn = document.getElementById('start-btn');
-const backBtn = document.getElementById('back-btn');
-const timerBtn = document.getElementById('timer-btn');
-
-// Модальное окно таймера
-const timerModal = document.getElementById('timer-modal');
-const startTimerBtn = document.getElementById('start-timer');
-const closeTimerBtn = document.getElementById('close-timer');
-const workInput = document.getElementById('work-time');
-const breakInput = document.getElementById('break-time');
-
-// Отображение таймера
-const timerDisplay = document.getElementById('timer-display');
-const timerLabel = document.getElementById('timer-label');
-const timerCount = document.getElementById('timer-count');
-const resetTimer = document.getElementById('reset-timer');
-
-let timerInterval;
-let currentPhase; // 'work' или 'break'
-let workDuration = 0;
-let breakDuration = 0;
-
 // ------------------ Плавное переключение страниц ------------------
 function showPage2() {
   page2.style.transform = 'translateX(0)';      // Вторая страница появляется
@@ -60,40 +41,53 @@ function showPage1() {
   page2.style.transform = 'translateX(100%)';   // Вторая уходит вправо
 }
 
-// ------------------ Навигация кнопок ------------------
 startBtn.addEventListener('click', showPage2);
 backBtn.addEventListener('click', showPage1);
 
-// ------------------ Модальное окно таймера ------------------
+// ------------------ Таймер на второй странице ------------------
+const timerModal = document.getElementById('timer-modal');
+const startTimerBtn = document.getElementById('start-timer');
+const closeTimerBtn = document.getElementById('close-timer');
+const workInput = document.getElementById('work-time');
+const breakInput = document.getElementById('break-time');
+
+const timerDisplay = document.getElementById('timer-display');
+const timerLabel = document.getElementById('timer-label');
+const timerCount = document.getElementById('timer-count');
+const resetTimer = document.getElementById('reset-timer');
+
+let timerInterval;
+let currentPhase; // 'work' или 'break'
+let workDuration = 0;
+let breakDuration = 0;
+
+// Кнопка "Запустить таймер" на второй странице
 timerBtn.addEventListener('click', () => {
-  timerModal.classList.remove('hidden');
+  timerModal.classList.remove('hidden'); // открываем модалку для ввода времени
 });
 
+// Кнопка "Отмена" в модальном окне
 closeTimerBtn.addEventListener('click', () => {
-  timerModal.classList.add('hidden');
+  timerModal.classList.add('hidden'); // просто закрываем окно
 });
 
-// ------------------ Запуск таймера ------------------
+// Кнопка "Запуск" в модальном окне
 startTimerBtn.addEventListener('click', () => {
-  workDuration = parseInt(workInput.value) * 60;   // минуты → секунды
-  breakDuration = parseInt(breakInput.value) * 60; 
-  timerModal.classList.add('hidden');
-  startPhase('work');
+  workDuration = parseInt(workInput.value) * 60;
+  breakDuration = parseInt(breakInput.value) * 60;
+
+  timerModal.classList.add('hidden');   // закрываем окно ввода
+  timerDisplay.classList.remove('hidden'); // показываем таймер на странице
+
+  startPhase('work'); // начинаем с фазы работы
 });
 
-// ------------------ Функции таймера ------------------
+// ------------------ Функции фаз таймера ------------------
 function startPhase(phase) {
   clearInterval(timerInterval);
   currentPhase = phase;
-  timerDisplay.classList.remove('hidden');
-
-  if (phase === 'work') {
-    timerLabel.textContent = 'Работа';
-    runTimer(workDuration);
-  } else {
-    timerLabel.textContent = 'Отдых';
-    runTimer(breakDuration);
-  }
+  timerLabel.textContent = phase === 'work' ? 'Работа' : 'Отдых';
+  runTimer(phase === 'work' ? workDuration : breakDuration);
 }
 
 function runTimer(duration) {
@@ -106,10 +100,10 @@ function runTimer(duration) {
 
     if (remaining <= 0) {
       clearInterval(timerInterval);
+
       if (currentPhase === 'work') {
         startPhase('break');
       } else {
-        // Конец цикла: спрашиваем пользователя
         if (confirm('Продолжаем работать?')) {
           startPhase('work');
         } else {
@@ -120,13 +114,13 @@ function runTimer(duration) {
   }, 1000);
 }
 
-// ------------------ Кнопка сброса таймера ------------------
+// ------------------ Кнопка "Сбросить" ------------------
 resetTimer.addEventListener('click', () => {
   clearInterval(timerInterval);
   timerDisplay.classList.add('hidden');
 });
 
-// ------------------ Форматирование времени ------------------
+// ------------------ Вспомогательная функция форматирования ------------------
 function formatTime(seconds) {
   const m = String(Math.floor(seconds / 60)).padStart(2, '0');
   const s = String(seconds % 60).padStart(2, '0');
