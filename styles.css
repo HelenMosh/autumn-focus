@@ -1,32 +1,24 @@
 /* styles.css */
 
+/* Основной фон */
 body {
-  background-color: #2b1b17;
-  color: #fff;
-  font-family: 'Press Start 2P', monospace;
-  text-align: center;
   margin: 0;
   padding: 0;
+  font-family: 'Press Start 2P', monospace;
+  color: #fff;
+  text-align: center;
+  background: url('bg.png') no-repeat center center;
+  background-size: cover;
 }
 
-/* Контейнер */
+/* Контейнер для кнопок */
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-}
-
-/* Тыква */
-#pumpkin {
-  width: 64px;
-  height: 64px;
-  background-image: url("pumpkin-sprite.png");
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  image-rendering: pixelated;
-  margin-bottom: 20px;
+  gap: 10px;
 }
 
 /* Кнопки */
