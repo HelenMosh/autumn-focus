@@ -88,8 +88,8 @@ button:hover {
 #book-content {
   background: url("book.png") no-repeat center center;
   background-size: contain;
-  width: 800px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
   position: relative;
   padding: 24px;
   display: flex;
@@ -102,10 +102,10 @@ button:hover {
 /* Текст внутри книги: абсолютным блоком, чтобы попадал в «поле» картинки */
 #book-text {
   position: absolute;
-  bottom: 70px;                              /* при необходимости подкрутить под картинку */
+  bottom: 50%;                              /* при необходимости подкрутить под картинку */
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;
+  width: 50%;
   text-align: center;
 }
 
