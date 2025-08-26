@@ -114,10 +114,10 @@ button:hover {
 
 /* ------------------ Таймер на второй странице ------------------ */
 #timer-display {
-  position: fixed;
-  top: 100px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: fixed; /* фиксируем относительно экрана */
+  top: 50%;        /* центрируем по вертикали */
+  left: 50%;       /* центрируем по горизонтали */
+  transform: translate(-50%, -50%); /* сдвигаем, чтобы блок был по центру */
   background-color: #ffffff;
   border: 4px solid #000;
   border-radius: 10px;
@@ -125,8 +125,9 @@ button:hover {
   text-align: center;
   font-family: 'Press Start 2P', monospace;
   color: #000;
-  z-index: 15;
+  z-index: 15;     /* поверх всех элементов второй страницы */
 }
+
 
 #timer-label {
   font-size: 16px;
