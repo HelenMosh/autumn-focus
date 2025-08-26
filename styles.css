@@ -13,12 +13,16 @@
 #page1 {
   transform: translateX(0);
   z-index: 5;
+  background: url('bg.png') no-repeat center center;
+  background-size: cover;
 }
 
 /* Вторая страница изначально находится справа */
 #page2 {
   transform: translateX(100%);
   z-index: 6;
+  background: url('bg2.png') no-repeat center center;
+  background-size: cover;
 }
 
 /* ------------------ Общие стили ------------------ */
@@ -28,8 +32,6 @@ body {
   font-family: 'Press Start 2P', monospace;
   color: #fff;
   text-align: left;
-  background: url('bg.png') no-repeat center center;
-  background-size: cover;
 }
 
 /* Контейнер для кнопок */
